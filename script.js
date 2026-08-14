@@ -1,15 +1,15 @@
 //your JS code here. If required.
-const userName = document.getElementById("id");
+const userName = document.getElementById("usrname");
 const password = document.getElementById("password");
 const checkBox = document.getElementById("checkbox");
 const btn = document.getElementById("submit");
 const myform = document.getElementById("myForm");
 const existingbtn = document.getElementById("existing");
-window.onload = function () {
 
-if(localStorage.getItem("username") && 
-	   localStorage.getItem("password")
-	  ){
+window.onload = function () {
+	const savedUserName = localStorage.getItem("username");
+	const savedPassword = localStorage.getItem("password");
+if(savedUserName !== null && savedPassword !==null){
 		existingbtn.style.display = "block";
 	  }
 }
