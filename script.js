@@ -5,15 +5,15 @@ const checkBox = document.getElementById("checkbox");
 const btn = document.getElementById("submit");
 const myform = document.getElementById("myForm");
 const existingbtn = document.getElementById("existing");
-onLoad(){
+window.onload = function () {
 
-if(localStorage.userObj.userName == userName.value && 
-	   localStorage.userObj.password == password.value
+if(localStorage.getItem("username") && 
+	   localStorage.getItem("password")
 	  ){
-		existingbtn.style.display = block;
+		existingbtn.style.display = "block";
 	  }
 }
-myForm.addEventListener("submit", function(e){
+myform.addEventListener("submit", function(e){
 	e.preventDefault();
 
 	
@@ -21,8 +21,8 @@ myForm.addEventListener("submit", function(e){
 	alert(`Logged in as ${userName.value}`);
 	
 	if(checkBox.checked){
-		localStorage.setItem(username:userName);
-		localStorage.setItem(password:password);
+		localStorage.setItem("username",userName.value);
+		localStorage.setItem("password",password.value);
 	}else{
 		localStorage.clear();
 	}
@@ -31,5 +31,5 @@ myForm.addEventListener("submit", function(e){
 })
 
 existingbtn.addEventListener("click",function(){
-	alert(`Logged in as ${userName}`);
+	alert(`Logged in as ${localStorage.getItem("username")}`);
 })
