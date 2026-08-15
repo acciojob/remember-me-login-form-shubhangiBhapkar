@@ -1,5 +1,5 @@
 //your JS code here. If required.
-const  username = document.getElementById("usrname");
+const  username = document.getElementById("username");
 const password = document.getElementById("password");
 const checkBox = document.getElementById("checkbox");
 const btn = document.getElementById("submit");
@@ -15,19 +15,13 @@ if(savedUserName !== null && savedPassword !==null){
 }
 myform.addEventListener("submit", function(e){
 	e.preventDefault();
-
-	
-
 	alert(`Logged in as ${ username.value}`);
-	
 	if(checkBox.checked){
 		localStorage.setItem("username",username.value);
 		localStorage.setItem("password",password.value);
 	}else{
 		localStorage.clear();
 	}
-
-	
 })
 
 existingbtn.addEventListener("click",function(){
