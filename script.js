@@ -6,24 +6,38 @@ const btn = document.getElementById("submit");
 const myform = document.getElementById("myForm");
 const existingbtn = document.getElementById("existing");
 
-window.onload = function () {
-	const savedUserName = localStorage.getItem("username");
-	const savedPassword = localStorage.getItem("password");
-if(savedUserName !== null && savedPassword !==null){
-		existingbtn.style.display = "block";
-	  }
-}
-myform.addEventListener("submit", function(e){
-	e.preventDefault();
-	alert(`Logged in as ${ username.value}`);
-	if(checkBox.checked){
-		localStorage.setItem("username",username.value);
-		localStorage.setItem("password",password.value);
-	}else{
-		localStorage.clear();
-	}
-})
+if (localStorage.getItem("username")) {
+      existing.style.display = "block";
+    }
 
-existingbtn.addEventListener("click",function(){
-	alert(`Logged in as ${localStorage.getItem("username")}`);
-})
+form.addEventListener("submit", function(event) {
+
+      event.preventDefault();
+
+      alert(`Logged in as ${username.value}`);
+
+      if (checkbox.checked) {
+
+        localStorage.setItem("username", username.value);
+        localStorage.setItem("password", password.value);
+
+        existing.style.display = "block";
+
+      }
+
+      else {
+
+        localStorage.removeItem("username");
+        localStorage.removeItem("password");
+
+        existing.style.display = "none";
+
+      }
+
+    });
+
+existing.addEventListener("click", function() {
+
+      alert(`Logged in as ${localStorage.getItem("username")}`);
+
+    });
